@@ -1,6 +1,6 @@
-package com.br.rodrigo.streamrodao.calculos;
+package com.br.rodrigo.streamrodao.domain1.calculos;
 
-import com.br.rodrigo.streamrodao.dtos.Titulo;
+import com.br.rodrigo.streamrodao.domain1.calculos.dtos.Titulo;
 
 public class CalculadoraDeTempo {
     private int tempoTotal;

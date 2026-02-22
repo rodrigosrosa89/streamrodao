@@ -1,6 +1,6 @@
-package com.br.rodrigo.streamrodao.dtos;
+package com.br.rodrigo.streamrodao.domain1.calculos.dtos;
 
-import com.br.rodrigo.streamrodao.calculos.Classificavel;
+import com.br.rodrigo.streamrodao.domain1.calculos.Classificavel;
 
 public class Episodio implements Classificavel {
     private int numero;

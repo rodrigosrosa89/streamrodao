@@ -1,10 +1,10 @@
-package com.br.rodrigo.streamrodao;
+package com.br.rodrigo.streamrodao.domain1.calculos.principal;
 
-import com.br.rodrigo.streamrodao.calculos.CalculadoraDeTempo;
-import com.br.rodrigo.streamrodao.calculos.FiltroRecomendacao;
-import com.br.rodrigo.streamrodao.dtos.Episodio;
-import com.br.rodrigo.streamrodao.dtos.Filme;
-import com.br.rodrigo.streamrodao.dtos.Serie;
+import com.br.rodrigo.streamrodao.domain1.calculos.CalculadoraDeTempo;
+import com.br.rodrigo.streamrodao.domain1.calculos.FiltroRecomendacao;
+import com.br.rodrigo.streamrodao.domain1.calculos.dtos.Episodio;
+import com.br.rodrigo.streamrodao.domain1.calculos.dtos.Filme;
+import com.br.rodrigo.streamrodao.domain1.calculos.dtos.Serie;
 
 import java.util.ArrayList;
 

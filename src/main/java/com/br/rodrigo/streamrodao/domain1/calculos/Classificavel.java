@@ -1,4 +1,4 @@
-package com.br.rodrigo.streamrodao.calculos;
+package com.br.rodrigo.streamrodao.domain1.calculos;
 
 public interface Classificavel {
 

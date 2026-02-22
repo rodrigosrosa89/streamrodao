@@ -1,12 +1,37 @@
-package com.br.rodrigo.streamrodao.dtos;
+package com.br.rodrigo.streamrodao.domain1.calculos.dtos;
 
-public class Titulo {
+import com.br.rodrigo.streamrodao.domain1.calculos.excecao.ErrodeConversaoException;
+import com.google.gson.annotations.SerializedName;
+
+public class Titulo implements Comparable<Titulo>  {
+    @SerializedName("Title")
     private String nome;
+
+    @SerializedName("Year")
     private int anoDeLancamento;
+
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
     private int totalDeAvaliacoes;
     private int duracaoEmMinutos;
+
+    public Titulo(TituloOmdb meuTituloomdb) {
+        this.nome = meuTituloomdb.title();
+
+        if (meuTituloomdb.year().length() > 4) {
+            throw new ErrodeConversaoException("Não consegui converter o ano do titulo.");
+        }
+        this.anoDeLancamento = Integer.parseInt(meuTituloomdb.year());
+        this.duracaoEmMinutos = Integer.parseInt(meuTituloomdb.runtime());
+    }
+
+    @Override
+    public String toString() {
+        return "Titulo{" +
+                "anoDeLancamento=" + anoDeLancamento +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 
     public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
@@ -61,5 +86,10 @@ public class Titulo {
 
     public double pegaMedia(){
         return somaDasAvaliacoes / totalDeAvaliacoes;
+    }
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
     }
 }
