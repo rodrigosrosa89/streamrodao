@@ -1,4 +1,4 @@
-package com.br.rodrigo.streamrodao.domain1.calculos.dtos;
+package com.br.rodrigo.streamrodao.domain1.dtos;
 
 import com.br.rodrigo.streamrodao.domain1.calculos.Classificavel;
 import lombok.Getter;

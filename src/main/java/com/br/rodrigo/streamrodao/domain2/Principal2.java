@@ -1,16 +1,12 @@
 package com.br.rodrigo.streamrodao.domain2;
 
-import com.br.rodrigo.streamrodao.domain2.model.DadosEpisodio;
 import com.br.rodrigo.streamrodao.domain2.model.DadosSerie;
 import com.br.rodrigo.streamrodao.domain2.model.DadosTemporada;
 import com.br.rodrigo.streamrodao.domain2.model.Episodio;
 import com.br.rodrigo.streamrodao.domain2.service.ConsumoApi;
 import com.br.rodrigo.streamrodao.domain2.service.ConverteDados;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;

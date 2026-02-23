@@ -1,4 +1,4 @@
-package com.br.rodrigo.streamrodao.domain1.calculos.dtos;
+package com.br.rodrigo.streamrodao.domain1.dtos;
 
 public class Serie extends Titulo {
     private int temporadas;

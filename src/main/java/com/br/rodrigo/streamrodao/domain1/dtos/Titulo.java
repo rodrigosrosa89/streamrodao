@@ -1,6 +1,6 @@
-package com.br.rodrigo.streamrodao.domain1.calculos.dtos;
+package com.br.rodrigo.streamrodao.domain1.dtos;
 
-import com.br.rodrigo.streamrodao.domain1.calculos.excecao.ErrodeConversaoException;
+import com.br.rodrigo.streamrodao.domain1.excecao.ErrodeConversaoException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo>  {
