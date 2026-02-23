@@ -7,9 +7,15 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -20,7 +26,7 @@ public class PetController {
     private PetService service;
 
     @GetMapping
-    public ResponseEntity<List<PetDTO>> buscarTodos(){
+    public ResponseEntity<List<PetDTO>> buscarTodos() {
         List<PetDTO> pets = service.listarTodos();
         return ResponseEntity.ok(pets);
     }
@@ -28,8 +34,12 @@ public class PetController {
     @PostMapping
     @Transactional
     public ResponseEntity<String> cadastrar(@RequestPart @Valid CadastroPetDTO dados,
-                                            @RequestParam MultipartFile imagem){
-        service.cadastrar(dados, imagem);
+                                            @RequestParam MultipartFile imagem) {
+        try {
+            service.cadastrar(dados, imagem);
+        } catch (IOException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
         return ResponseEntity.ok().build();
     }
 }
