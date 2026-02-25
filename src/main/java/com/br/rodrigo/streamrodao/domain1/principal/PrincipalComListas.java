@@ -3,6 +3,7 @@ package com.br.rodrigo.streamrodao.domain1.principal;
 import com.br.rodrigo.streamrodao.domain1.dtos.Filme;
 import com.br.rodrigo.streamrodao.domain1.dtos.Serie;
 import com.br.rodrigo.streamrodao.domain1.dtos.Titulo;
+import com.br.rodrigo.streamrodao.domain2.model.DadosSerie;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,15 +19,18 @@ public class PrincipalComListas {
         outroFilme.avalia(6);
         var filmeDoPaulo = new Filme("Dogville", 2003);
         filmeDoPaulo.avalia(10);
-        Serie lost = new Serie("Lost", 2000);
+        DadosSerie dados = new DadosSerie("Lost", 2000, "10", "Aventura",
+                "atores xxx", "poster", "sinopse");
+        Serie lost = new Serie(dados);
 
         Filme f1 = filmeDoPaulo;
+        System.out.println(f1);
 
         ArrayList<Titulo> lista = new ArrayList<>();
         lista.add(filmeDoPaulo);
         lista.add(meuFilme);
         lista.add(outroFilme);
-        lista.add(lost);
+
         for (Titulo item : lista) {
             System.out.println(item.getNome());
             if (item instanceof Filme filme && filme.getClassificacao() > 2) {

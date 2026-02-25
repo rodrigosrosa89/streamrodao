@@ -1,49 +1,95 @@
 package com.br.rodrigo.streamrodao.domain1.dtos;
 
-public class Serie extends Titulo {
-    private int temporadas;
-    private boolean ativa;
-    private int episodiosPorTemporada;
-    private int minutosPorEpisodio;
+import com.br.rodrigo.streamrodao.domain2.model.DadosSerie;
+import com.br.rodrigo.streamrodao.domain3.service.ConsultaChatGpt;
 
-    public Serie(String nome, int anoDeLancamento) {
-        super(nome, anoDeLancamento);
+import java.util.OptionalDouble;
+
+public class Serie {
+    private String titulo;
+    private Integer totalTemporadas;
+    private Double avaliacao;
+    private Categoria genero;
+    private String atores;
+    private String poster;
+    private String sinopse;
+
+    public Serie(DadosSerie dadosSerie){
+        this.titulo = dadosSerie.titulo();
+        this.totalTemporadas = dadosSerie.totalTemporadas();
+        this.avaliacao = OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0);
+        this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
+        this.atores = dadosSerie.atores();
+        this.poster = dadosSerie.poster();
+        this.sinopse = ConsultaChatGpt.obterTraducao(dadosSerie.sinopse()).trim();
     }
 
-    public int getTemporadas() {
-        return temporadas;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTemporadas(int temporadas) {
-        this.temporadas = temporadas;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public boolean isAtiva() {
-        return ativa;
+    public Integer getTotalTemporadas() {
+        return totalTemporadas;
     }
 
-    public void setAtiva(boolean ativa) {
-        this.ativa = ativa;
+    public void setTotalTemporadas(Integer totalTemporadas) {
+        this.totalTemporadas = totalTemporadas;
     }
 
-    public int getEpisodiosPorTemporada() {
-        return episodiosPorTemporada;
+    public Double getAvaliacao() {
+        return avaliacao;
     }
 
-    public void setEpisodiosPorTemporada(int episodiosPorTemporada) {
-        this.episodiosPorTemporada = episodiosPorTemporada;
+    public void setAvaliacao(Double avaliacao) {
+        this.avaliacao = avaliacao;
     }
 
-    public int getMinutosPorEpisodio() {
-        return minutosPorEpisodio;
+    public Categoria getGenero() {
+        return genero;
     }
 
-    public void setMinutosPorEpisodio(int minutosPorEpisodio) {
-        this.minutosPorEpisodio = minutosPorEpisodio;
+    public void setGenero(Categoria genero) {
+        this.genero = genero;
+    }
+
+    public String getAtores() {
+        return atores;
+    }
+
+    public void setAtores(String atores) {
+        this.atores = atores;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
     }
 
     @Override
-    public int getDuracaoEmMinutos() {
-        return temporadas * episodiosPorTemporada * minutosPorEpisodio;
+    public String toString() {
+        return
+                "genero=" + genero +
+                        ", titulo='" + titulo + '\'' +
+                        ", totalTemporadas=" + totalTemporadas +
+                        ", avaliacao=" + avaliacao +
+
+                        ", atores='" + atores + '\'' +
+                        ", poster='" + poster + '\'' +
+                        ", sinopse='" + sinopse + '\'';
     }
 }
