@@ -1,51 +1,102 @@
 package com.br.rodrigo.streamrodao.domain1.dtos;
 
-import com.br.rodrigo.streamrodao.domain1.calculos.Classificavel;
+import com.br.rodrigo.streamrodao.domain2.model.DadosEpisodio;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Episodio implements Classificavel {
-    private int numero;
-    private String nome;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
+@Entity
+@Table(name = "episodios")
+@Getter
+@Setter
+public class Episodio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
+    private Integer temporada;
+    private String titulo;
+    private Integer numeroEpisodio;
+    private Double avaliacao;
+    private LocalDate dataLancamento;
+
+    public Episodio() {}
+
+    @ManyToOne
     private Serie serie;
-    private int totalVisualizacoes;
 
-    public int getTotalVisualizacoes() {
-        return totalVisualizacoes;
+    public Episodio(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
+        this.temporada = numeroTemporada;
+        this.titulo = dadosEpisodio.titulo();
+        this.numeroEpisodio = dadosEpisodio.numero();
+
+        try {
+            this.avaliacao = Double.valueOf(dadosEpisodio.avaliacao());
+        } catch (NumberFormatException ex) {
+            this.avaliacao = 0.0;
+        }
+
+        try {
+            this.dataLancamento = LocalDate.parse(dadosEpisodio.dataLancamento());
+        } catch (DateTimeParseException ex) {
+            this.dataLancamento = null;
+        }
     }
 
-    public void setTotalVisualizacoes(int totalVisualizacoes) {
-        this.totalVisualizacoes = totalVisualizacoes;
+    public Integer getTemporada() {
+        return temporada;
     }
 
-    public int getNumero() {
-        return numero;
+    public void setTemporada(Integer temporada) {
+        this.temporada = temporada;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public String getNome() {
-        return nome;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Integer getNumeroEpisodio() {
+        return numeroEpisodio;
     }
 
-    public Serie getSerie() {
-        return serie;
+    public void setNumeroEpisodio(Integer numeroEpisodio) {
+        this.numeroEpisodio = numeroEpisodio;
     }
 
-    public void setSerie(Serie serie) {
-        this.serie = serie;
+    public Double getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(Double avaliacao) {
+        this.avaliacao = avaliacao;
+    }
+
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
 
     @Override
-    public int getClassificacao() {
-        if (totalVisualizacoes > 100) {
-            return 4;
-        } else {
-            return 2;
-        }
+    public String toString() {
+        return "temporada=" + temporada +
+                ", titulo='" + titulo + '\'' +
+                ", numeroEpisodio=" + numeroEpisodio +
+                ", avaliacao=" + avaliacao +
+                ", dataLancamento=" + dataLancamento ;
     }
 }

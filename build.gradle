@@ -30,6 +30,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+	//Postgresql
+	implementation 'org.postgresql:postgresql:42.7.1'
+
+
 	// IA
 	implementation 'com.theokanning.openai-gpt3-java:service:0.14.0'
 
