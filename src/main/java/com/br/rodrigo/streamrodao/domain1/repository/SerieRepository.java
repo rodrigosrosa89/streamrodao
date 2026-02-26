@@ -1,5 +1,6 @@
 package com.br.rodrigo.streamrodao.domain1.repository;
 
+import com.br.rodrigo.streamrodao.domain1.dtos.Categoria;
 import com.br.rodrigo.streamrodao.domain1.dtos.Serie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -10,5 +11,11 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
 
     Optional<Serie> findByTituloContainingIgnoreCase(String nomeSerie);
 
-    List<Serie> findAllByAtoresContainingIgnoreCas(String ator);
+    List<Serie> findByAtoresContainingIgnoreCaseAndAvaliacaoGreaterThanEqual(String nomeAtor, double avaliacao);
+
+    List<Serie> findTop5ByOrderByAvaliacaoDesc();
+
+    List<Serie> findByGenero(Categoria categoria);
+
+    List<Serie> findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual(int totalTemporadas, double avaliacao);
 }
