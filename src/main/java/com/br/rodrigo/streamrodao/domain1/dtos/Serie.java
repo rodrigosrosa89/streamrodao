@@ -21,7 +21,6 @@ import java.util.OptionalDouble;
 @Entity
 @Table(name = "series")
 public class Serie {
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -46,11 +45,15 @@ public class Serie {
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
-        this.sinopse = ConsultaChatGpt .obterTraducao(dadosSerie.sinopse()).trim();
+        this.sinopse = ConsultaChatGpt.obterTraducao(dadosSerie.sinopse()).trim();
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<Episodio> getEpisodios() {
@@ -125,11 +128,9 @@ public class Serie {
                         ", titulo='" + titulo + '\'' +
                         ", totalTemporadas=" + totalTemporadas +
                         ", avaliacao=" + avaliacao +
-
                         ", atores='" + atores + '\'' +
                         ", poster='" + poster + '\'' +
                         ", sinopse='" + sinopse + '\'' +
                         ", episodios='" + episodios + '\'';
-
     }
 }
