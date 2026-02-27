@@ -1,8 +1,8 @@
 package com.br.rodrigo.streamrodao.domain1.principal;
 
-import com.br.rodrigo.streamrodao.domain1.dtos.Filme;
-import com.br.rodrigo.streamrodao.domain1.dtos.Serie;
-import com.br.rodrigo.streamrodao.domain1.dtos.Titulo;
+import com.br.rodrigo.streamrodao.domain1.models.Filme;
+import com.br.rodrigo.streamrodao.domain1.models.Serie;
+import com.br.rodrigo.streamrodao.domain1.models.Titulo;
 import com.br.rodrigo.streamrodao.domain2.model.DadosSerie;
 
 import java.util.ArrayList;

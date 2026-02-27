@@ -1,4 +1,4 @@
-package com.br.rodrigo.streamrodao.domain1.dtos;
+package com.br.rodrigo.streamrodao.domain1.models;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

@@ -1,4 +1,4 @@
-package com.br.rodrigo.streamrodao.domain1.dtos;
+package com.br.rodrigo.streamrodao.domain1.models;
 
 import com.br.rodrigo.streamrodao.domain2.model.DadosEpisodio;
 import jakarta.persistence.Entity;

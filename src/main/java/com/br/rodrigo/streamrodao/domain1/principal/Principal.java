@@ -1,8 +1,8 @@
 package com.br.rodrigo.streamrodao.domain1.principal;
 
-import com.br.rodrigo.streamrodao.domain1.dtos.Categoria;
-import com.br.rodrigo.streamrodao.domain1.dtos.Episodio;
-import com.br.rodrigo.streamrodao.domain1.dtos.Serie;
+import com.br.rodrigo.streamrodao.domain1.models.Categoria;
+import com.br.rodrigo.streamrodao.domain1.models.Episodio;
+import com.br.rodrigo.streamrodao.domain1.models.Serie;
 import com.br.rodrigo.streamrodao.domain1.repository.SerieRepository;
 import com.br.rodrigo.streamrodao.domain2.model.DadosSerie;
 import com.br.rodrigo.streamrodao.domain2.model.DadosTemporada;

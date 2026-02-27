@@ -1,8 +1,8 @@
 package com.br.rodrigo.streamrodao.domain1.principal;
 
-import com.br.rodrigo.streamrodao.domain1.dtos.Titulo;
-import com.br.rodrigo.streamrodao.domain1.dtos.TituloOmdb;
 import com.br.rodrigo.streamrodao.domain1.excecao.ErrodeConversaoException;
+import com.br.rodrigo.streamrodao.domain1.models.Titulo;
+import com.br.rodrigo.streamrodao.domain1.models.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
